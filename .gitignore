@@ -1,0 +1,19 @@
+# Compiled files
+*.o
+*.so
+*.rlib
+*.dll
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Directories
+/target/
+
+# Lock files
+Cargo.lock
+
+# Ignore .vscode settings
+/.vscode/
