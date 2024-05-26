@@ -1,3 +1,5 @@
+![Build](https://github.com/a-ostrovsky/rust_experiments/actions/workflows/build.yml/badge.svg)
+
 # Rust Experiments Project
 
 This project is my sandbox for experimenting with the Rust programming language.
