@@ -17,4 +17,3 @@ This is a personal experimentation project, and contributions are not currently 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-```
