@@ -31,22 +31,13 @@ pub fn quick_select<T: PartialOrd + Copy>(mut arr: &mut [T], k: usize) -> &T {
 
 #[cfg(test)]
 mod tests {
-    use rand::rngs::StdRng;
-    use rand::seq::SliceRandom;
-    use rand::SeedableRng;
-
     use super::*;
+    use crate::utils::create_random_distinct_vec;
 
     fn test_quick_select<T: PartialOrd + Copy>(arr: &[T], k: usize) -> T {
         let mut arr_clone = arr.to_vec();
         let ret = quick_select(&mut arr_clone, k);
         *ret
-    }
-
-    fn create_random_vec_distinct(len: usize) -> Vec<i32> {
-        let mut vec = (0..len as i32).collect::<Vec<_>>();
-        vec.shuffle(&mut StdRng::seed_from_u64(0));
-        vec
     }
 
     #[test]
@@ -60,7 +51,7 @@ mod tests {
     #[test]
     fn test_quick_select_random_no_duplicates() {
         let len = 100;
-        let arr = create_random_vec_distinct(len);
+        let arr = create_random_distinct_vec(len);
         let mut arr_sorted = arr.clone();
         arr_sorted.sort();
         for i in 0..arr.len() {
