@@ -1,18 +1,19 @@
 fn partition<T: PartialOrd + Copy>(arr: &mut [T], pivot_idx: usize) -> usize {
     let pivot_value = arr[pivot_idx];
     arr.swap(pivot_idx, arr.len() - 1);
-    let mut i = 0;
-    for j in 0..arr.len() - 1 {
-        if arr[j] < pivot_value {
-            arr.swap(i, j);
-            i += 1;
+    let mut current_idx = 0;
+    for i in 0..arr.len() - 1 {
+        if arr[i] < pivot_value {
+            arr.swap(current_idx, i);
+            current_idx += 1;
         }
     }
-    arr.swap(i, arr.len() - 1);
-    i
+    arr.swap(current_idx, arr.len() - 1);
+    current_idx
 }
 
 pub fn quick_select<T: PartialOrd + Copy>(mut arr: &mut [T], k: usize) -> &T {
+    assert!(!arr.is_empty());
     let mut k_updated = k; // k is relative to the current arr slice
     loop {
         let pivot_idx = arr.len() / 2;
@@ -46,6 +47,14 @@ mod tests {
         let mut vec = (0..len as i32).collect::<Vec<_>>();
         vec.shuffle(&mut StdRng::seed_from_u64(0));
         vec
+    }
+
+    #[test]
+    fn test_quick_select_simple() {
+        let mut arr = [9, 8, 7, 6, 5, 4, 3, 2, 1];
+        let k = 5;
+        let element = quick_select(&mut arr, k);
+        assert_eq!(*element, 6, "The {}th smallest element should be {}", k, 6);
     }
 
     #[test]
