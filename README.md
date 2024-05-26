@@ -1,6 +1,6 @@
 # Rust Experiments Project
 
-This project is a sandbox for experimenting with the Rust programming language. It's a place to try out new concepts, libraries, and techniques in Rust.
+This project is my sandbox for experimenting with the Rust programming language.
 
 ## Getting Started
 
@@ -11,9 +11,15 @@ git clone https://github.com/a-ostrovsky/rust_experiments.git
 cd rust-experiments
 cargo test
 ```
+
+## Running Benchmarks
+If you want to run the benchmarks, use the following command:
+```
+cargo bench
+```
+
 ## Contributing
 This is a personal experimentation project, and contributions are not currently being accepted.
 
 ## License
-
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
